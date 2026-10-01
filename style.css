@@ -1,0 +1,77 @@
+/* Design tokens */
+:root {
+  --bg: #1d2b2a;        /* deep teal body */
+  --body: #26393a;      /* calculator shell */
+  --screen: #c9d8b6;    /* pale green LCD */
+  --ink: #1b2a1f;       /* LCD text */
+  --key: #f1ece1;       /* ivory keys */
+  --key-text: #25302f;
+  --fn: #3d5a58;
+  --op: #e8a33d;        /* amber operators */
+  --eq: #d4513d;        /* red equals */
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+.calc {
+  width: min(92vw, 360px);
+  padding: 18px;
+  background: var(--body);
+  border-radius: 22px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .45);
+}
+
+/* Display */
+.display {
+  position: relative;
+  height: 120px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  background: var(--screen);
+  color: var(--ink);
+  border-radius: 10px;
+  box-shadow: inset 0 3px 8px rgba(0, 0, 0, .3);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: right;
+  font-family: "Courier New", monospace;
+  overflow: hidden;
+}
+.expr { min-height: 22px; font-size: 1rem; opacity: .65; word-break: break-all; }
+.result { font-size: 2.4rem; font-weight: bold; white-space: nowrap; overflow-x: auto; }
+.result.error { font-size: 1.4rem; color: #8a1f12; }
+.mem { position: absolute; top: 8px; left: 12px; font-size: .8rem; font-weight: bold; }
+
+/* Keys */
+.keys { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+
+button {
+  padding: 16px 0;
+  border: 0;
+  border-radius: 10px;
+  font-size: 1.15rem;
+  font-family: inherit;
+  background: var(--key);
+  color: var(--key-text);
+  box-shadow: 0 3px 0 rgba(0, 0, 0, .35);
+  cursor: pointer;
+  transition: transform .06s, box-shadow .06s;
+}
+button:active, button.pressed { transform: translateY(3px); box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+button:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+
+.fn { background: var(--fn); color: #fff; font-size: 1rem; }
+.op { background: var(--op); color: #2b1c05; font-weight: bold; }
+.eq { background: var(--eq); color: #fff; font-weight: bold; }
+
+@media (prefers-reduced-motion: reduce) { button { transition: none; } }

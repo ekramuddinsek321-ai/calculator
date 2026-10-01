@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="calc" aria-label="Calculator">
+    <!-- Display: expression on top, result below -->
+    <section class="display" aria-live="polite">
+      <div class="mem" id="mem" hidden>M</div>
+      <div class="expr" id="expr"></div>
+      <div class="result" id="result">0</div>
+    </section>
+
+    <!-- Buttons: data-key holds the value handled in script.js -->
+    <section class="keys">
+      <button class="fn" data-key="MC">MC</button>
+      <button class="fn" data-key="MR">MR</button>
+      <button class="fn" data-key="M-">M-</button>
+      <button class="fn" data-key="M+">M+</button>
+
+      <button class="fn" data-key="C">C</button>
+      <button class="fn" data-key="Backspace" aria-label="Backspace">&#9003;</button>
+      <button class="fn" data-key="sqrt">&radic;</button>
+      <button class="op" data-key="/">&divide;</button>
+
+      <button data-key="7">7</button>
+      <button data-key="8">8</button>
+      <button data-key="9">9</button>
+      <button class="op" data-key="*">&times;</button>
+
+      <button data-key="4">4</button>
+      <button data-key="5">5</button>
+      <button data-key="6">6</button>
+      <button class="op" data-key="-">&minus;</button>
+
+      <button data-key="1">1</button>
+      <button data-key="2">2</button>
+      <button data-key="3">3</button>
+      <button class="op" data-key="+">+</button>
+
+      <button data-key="%">%</button>
+      <button data-key="0">0</button>
+      <button data-key=".">.</button>
+      <button class="eq" data-key="=">=</button>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
